@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# =================== CONFIG ===================
+# ==== CONFIG ====
 HOME_DIR="/home/wazuh-user"
 LIST_URL="https://raw.githubusercontent.com/geercaceres/wazuh-sample-logs/main/sample%20logs%20list.txt"
-LIST_FILE="$HOME_DIR/sample-logs-list.txt"   # renombrado sin espacios
+LIST_FILE="$HOME_DIR/sample-logs-list.txt"
 COLLECTED="$HOME_DIR/file-collected.log"
 
 STATE_DIR="/var/lib/wz-logfeeder"
@@ -15,15 +15,12 @@ FIRST_RUN_FLAG="$STATE_DIR/.first_run_done"
 PID_FILE="/var/run/wz-logfeeder.pid"
 LOG_FILE="/var/log/wz-logfeeder.log"
 
-# Ajustables
-SLEEP_SECONDS="${SLEEP_SECONDS:-600}"         # 10 min
-LINES_PER_TICK="${LINES_PER_TICK:-100}"       # líneas por ciclo
+SLEEP_SECONDS="${SLEEP_SECONDS:-600}"      # 10 min
+LINES_PER_TICK="${LINES_PER_TICK:-100}"    # líneas por ciclo
 
-# Wazuh
 WAZUH_OSSEC="/var/ossec/etc/ossec.conf"
 WAZUH_SVC="wazuh-agent"
 
-# =================== FUNCIONES ===================
 log() { echo "[$(date '+%F %T')] $*" | tee -a "$LOG_FILE" ; }
 
 ensure_root() {
@@ -37,7 +34,6 @@ first_run_prep() {
   mkdir -p "$STATE_DIR" "$(dirname "$LOG_FILE")"
   : > "$LOG_FILE"
 
-  # 1) Descargar lista
   mkdir -p "$HOME_DIR"
   if [[ ! -f "$LIST_FILE" ]]; then
     log "Descargando lista de logs a $LIST_FILE"
@@ -46,21 +42,17 @@ first_run_prep() {
     log "Lista ya existe: $LIST_FILE"
   fi
 
-  # 2) Crear archivo de salida
   if [[ ! -f "$COLLECTED" ]]; then
     log "Creando $COLLECTED"
     touch "$COLLECTED"
     chmod 0644 "$COLLECTED"
   fi
 
-  # 3) Insertar <localfile> si falta
   if ! grep -q "<location>$COLLECTED</location>" "$WAZUH_OSSEC"; then
     log "Agregando <localfile> en $WAZUH_OSSEC"
     cp -a "$WAZUH_OSSEC" "$WAZUH_OSSEC.bak.$(date +%Y%m%d%H%M%S)"
     sed -i "\#</ossec_config>#i \
 <localfile>\n  <location>${COLLECTED}</location>\n  <log_format>json</log_format>\n</localfile>\n" "$WAZUH_OSSEC"
-
-    # 4) Reiniciar agente
     log "Reiniciando servicio $WAZUH_SVC"
     systemctl restart "$WAZUH_SVC" || log "Aviso: no se pudo reiniciar $WAZUH_SVC (continuo)"
   else
@@ -72,9 +64,11 @@ first_run_prep() {
 }
 
 prepare_shuffle_if_needed() {
+  # genera una “baraja” sin blancos y sin CR (\r)
   if [[ ! -s "$SHUF_FILE" || ! -s "$POS_FILE" ]]; then
     log "Preparando baraja aleatoria…"
-    awk 'NF' "$LIST_FILE" | shuf > "$SHUF_FILE"
+    # normaliza: quita \r, elimina líneas vacías; luego baraja
+    tr -d '\r' < "$LIST_FILE" | awk 'NF' | shuf > "$SHUF_FILE"
     echo "0" > "$POS_FILE"
   fi
 }
@@ -88,18 +82,33 @@ append_batch() {
 
   if (( pos >= total )); then
     log "Fin de baraja alcanzado. Re–barajando…"
-    awk 'NF' "$LIST_FILE" | shuf > "$SHUF_FILE"
+    tr -d '\r' < "$LIST_FILE" | awk 'NF' | shuf > "$SHUF_FILE"
     echo "0" > "$POS_FILE"
     pos=0
     total=$(wc -l < "$SHUF_FILE" | tr -d ' ')
   fi
 
   end=$(( pos + LINES_PER_TICK ))
-  if (( end > total )); then end=$total; fi
+  (( end > total )) && end=$total
 
   if (( end > pos )); then
-    # Añadir líneas, garantizando salto de línea entre entradas
-    sed -n "$((pos+1))","$end"p "$SHUF_FILE" | sed 's/$/\n/' >> "$COLLECTED"
+    # extrae el lote, normaliza y, si hay jq, valida cada JSON
+    if command -v jq >/dev/null 2>&1; then
+      sed -n "$((pos+1))","$end"p "$SHUF_FILE" \
+        | tr -d '\r' \
+        | awk 'NF' \
+        | while IFS= read -r line; do
+            # valida y fuerza single-line
+            parsed=$(echo "$line" | jq -c . 2>/dev/null) || continue
+            printf '%s\n' "$parsed"
+          done >> "$COLLECTED"
+    else
+      # sin jq: al menos quitamos CR y líneas vacías
+      sed -n "$((pos+1))","$end"p "$SHUF_FILE" \
+        | tr -d '\r' \
+        | awk 'NF' >> "$COLLECTED"
+    fi
+
     echo "$end" > "$POS_FILE"
     count=$(( end - pos ))
     log "Append de $count líneas (pos=$end/$total) → $COLLECTED"
@@ -111,7 +120,6 @@ append_batch() {
 run_loop() {
   trap 'log "Recibido SIGTERM, saliendo…"; exit 0' TERM INT
   [[ -f "$FIRST_RUN_FLAG" ]] || first_run_prep
-
   while true; do
     append_batch
     sleep "$SLEEP_SECONDS" &
@@ -131,7 +139,12 @@ start_daemon() {
     echo "Ya está corriendo. PID $(cat "$PID_FILE")"
     exit 0
   fi
-  # Arranca en background llamándose a sí mismo con 'run'
+  # lock simple para evitar dobles instancias
+  exec 9>/var/lock/wz-logfeeder.lock
+  if ! flock -n 9; then
+    echo "Ya hay una instancia corriendo. Saliendo."
+    exit 0
+  fi
   nohup "$0" run >> "$LOG_FILE" 2>&1 &
   echo $! > "$PID_FILE"
   echo "Iniciado en background. PID $(cat "$PID_FILE")"
@@ -147,9 +160,7 @@ stop_daemon() {
   local pid; pid=$(cat "$PID_FILE")
   kill "$pid" || true
   sleep 1
-  if [[ -d "/proc/$pid" ]]; then
-    kill -9 "$pid" || true
-  fi
+  [[ -d "/proc/$pid" ]] && kill -9 "$pid" || true
   rm -f "$PID_FILE"
   echo "Detenido."
 }
@@ -162,16 +173,15 @@ status_daemon() {
   fi
 }
 
-# =================== DISPATCH ===================
 case "${1:-}" in
   start)  start_daemon ;;
   stop)   stop_daemon ;;
   status) status_daemon ;;
-  run)    run_loop ;;     # uso interno
+  run)    run_loop ;;
   *)
     cat <<EOF
 Uso: $0 {start|stop|status}
-Variables opcionales: LINES_PER_TICK=<n> SLEEP_SECONDS=<seg>
+Variables: LINES_PER_TICK=<n> SLEEP_SECONDS=<seg>
 Ejemplo: LINES_PER_TICK=300 SLEEP_SECONDS=600 sudo $0 start
 EOF
     exit 1
