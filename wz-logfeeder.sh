@@ -58,7 +58,7 @@ first_run_prep() {
     log "Agregando <localfile> en $WAZUH_OSSEC"
     cp -a "$WAZUH_OSSEC" "$WAZUH_OSSEC.bak.$(date +%Y%m%d%H%M%S)"
     sed -i "\#</ossec_config>#i \
-<localfile>\n  <location>${COLLECTED}</location>\n  <log_format>JSON</log_format>\n</localfile>\n" "$WAZUH_OSSEC"
+<localfile>\n  <location>${COLLECTED}</location>\n  <log_format>json</log_format>\n</localfile>\n" "$WAZUH_OSSEC"
 
     # 4) Reiniciar agente
     log "Reiniciando servicio $WAZUH_SVC"
