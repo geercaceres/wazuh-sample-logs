@@ -233,6 +233,18 @@
 </rule>
 
 
-  
+  <!-- custom rule to change level from Graph API logs -->
+
+<group name="ms-graph">
+    <!--Add catchall rule -->
+    <rule id="99500" level="3" overwrite="yes">
+        <decoded_as>json-msgraph</decoded_as>
+        <field name="integration">ms-graph</field>
+        <options>no_full_log</options>
+        <description>MS Graph message: Microsoft graph messages grouped.</description>
+    </rule>
+    
+    </group>
 
 </group>
+
