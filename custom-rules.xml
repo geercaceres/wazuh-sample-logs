@@ -232,7 +232,7 @@
   <description>Google Workspace : API client authorized - $(gworkspace.parameters.API_CLIENT_NAME)</description>
 </rule>
 
-
+</group>
   <!-- custom rule to change level from Graph API logs -->
 
 <group name="ms-graph">
@@ -246,5 +246,6 @@
     
     </group>
 
-</group>
+
+
 
