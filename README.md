@@ -1,8 +1,8 @@
 # 🧩 Wazuh Log Feeder Simulation Guide
 
 This guide explains how to set up the **Wazuh Log Feeder** script, which simulates real integrations  
-(AWS, GCP, Office 365, Azure, etc.) by continuously feeding JSON logs into the Wazuh agent.  
-**If new logs entries will be added, make sure this are set in single line JSON format
+(AWS, GCP, Office 365, Azure, etc.) by continuously feeding both standard and JSON logs into the Wazuh agent.  
+**If new logs entries will be added, make sure these are set in the corresponding file, depending on the format, file-collected.log or json-file-collected.log
 
 ---
 
