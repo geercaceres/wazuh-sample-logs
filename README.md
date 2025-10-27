@@ -10,9 +10,12 @@ This guide explains how to set up the **Wazuh Log Feeder** script, which simulat
 
 ### Step 1 – Download the script
 ```bash
-sudo curl -fsSL -o /usr/local/bin/wz-logfeeder.sh \
+sudo curl -A "Mozilla/5.0" -fsSL \
+  -o /usr/local/bin/wz-logfeeder.sh \
   https://raw.githubusercontent.com/geercaceres/wazuh-sample-logs/main/wz-logfeeder.sh
+
 sudo chmod +x /usr/local/bin/wz-logfeeder.sh
+
 ```
 
 ### Step 2 – Start the feeder in background
@@ -26,20 +29,32 @@ Check status:
 ```bash
 sudo /usr/local/bin/wz-logfeeder.sh status
 ```
+Check logs:
+```bash
+tail -n 20 /var/log/wz-logfeeder.log
+```
+
 
 ## 2️⃣ How it works
 
 - On the first run, the script:
-1. Downloads the log list from GitHub.
-2. Creates file-collected.log.
-3. Adds a <localfile> block to /var/ossec/etc/ossec.conf
+1. Downloads the two log lists from GitHub, one for JSON logs and another for standard logs.
+2. Creates two file-collected.log, one for JSON and another for standard logs.
+3. Adds two <localfile> block to /var/ossec/etc/ossec.conf
 4. Restarts the Wazuh agent.
 
-- Every 10 minutes, it appends new JSON lines (in random order) into the file, simulating constant log input.
+- Every 10 minutes, it appends new standard and JSON lines (in random order) into the files, simulating constant log input.
 Default paths:
 ```bash
+Standard logs:
 /home/wazuh-user/sample-logs-list.txt
-/var/ossec/logs/custom/file-collected.log
+/home/wazuh-user/file-collected.log
+
+JSON logs:
+/home/wazuh-user/json-sample-logs-list.txt
+/home/wazuh-user/json-file-collected.log
+
+Service logs:
 /var/log/wz-logfeeder.log
 ```
 ## 3️⃣ Wazuh Agent Configuration
@@ -51,19 +66,20 @@ The correct <localfile> entry should look like:
   <location>/var/ossec/logs/custom/file-collected.log</location>
   <log_format>json</log_format>
 </localfile>
+
+<localfile>
+  <location>/home/wazuh-user/json-file-collected.log</location>
+  <log_format>json</log_format>
+</localfile>
+
 ```
 
 Validate configuration:
-```bash
-sudo /var/ossec/bin/wazuh-agentd -t -f
-```
-It must return: “Configuration OK”.
-
 
 ## 4️⃣ Verify it’s working
 On the agent
 ```bash
-sudo tail -n 30 /var/ossec/logs/ossec.log | grep -Ei 'file-collected|logcollector|json'
+sudo tail -n 100 /var/ossec/logs/ossec.log | grep 'Analyzing file:' | grep file-collected
 ```
 - On the Wazuh Dashboard
 Go to Threat Hunting → Index: wazuh-alerts-*
@@ -72,6 +88,7 @@ You should see alerts such as:
 1. Office 365: SharePoint events
 2. AWS GuardDuty: PORT_PROBE
 3. GCP emergency event...
+4. Fortigate: SSL fatal alert.
 
 ## 5️⃣ Adjusting parameters
 You can change the feed speed easily:
