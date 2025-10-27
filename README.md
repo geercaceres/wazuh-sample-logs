@@ -63,7 +63,7 @@ The correct <localfile> entry should look like:
 
 ```bash
 <localfile>
-  <location>/var/ossec/logs/custom/file-collected.log</location>
+  <location>/home/wazuh-user/file-collected.log</location>
   <log_format>syslog</log_format>
 </localfile>
 
