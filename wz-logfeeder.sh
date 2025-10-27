@@ -53,9 +53,13 @@ ensure_root() {
 download_if_missing() {
   local url="$1" file="$2"
   mkdir -p "$(dirname "$file")"
+
   if [[ ! -f "$file" ]]; then
     log "Downloading log list $url -> $file"
-    curl -fsSL "$url" -o "$file"
+    if ! curl -A "Mozilla/5.0" -fsSL "$url" -o "$file"; then
+      log "WARNING: failed to download $url (rate limit or network). Creating empty placeholder $file so feeder can still run."
+      : > "$file"
+    fi
   else
     log "Log list already exists: $file"
   fi
