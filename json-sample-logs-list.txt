@@ -191,6 +191,41 @@ Google Workspace
 
 {"source_event":"ms-graph-alert","integration":"ms-graph","timestamp":"2025-10-24T04:13:59.830+0000","agent":{"id":"007","name":"Debian","ip":"24.243.97.14"},"geo":{"city":"Sydney","region":"Sydney","country":"Australia","lon":151.2073212,"lat":-33.8678513},"ms-graph":{"riskLevel":"medium","riskState":"atRisk","riskDetail":"userPassedMFADrivenByRiskBasedPolicy","activity":"signin","activityOperationType":"Action","activityResult":"timeout","activityDateTime":"2025-10-20T16:28:17.875Z","displayName":"rebootNow ManagedDevice","title":"Unfamiliar sign-in properties","description":"The following properties of this sign-in are unfamiliar for the given user: ASN, Browser, Device, IP, Location, EASId, TenantIPsubnet","category":"Application","status":"new","severity":"low","productName":"AAD Identity Protection","detectionSource":"azureAdIdentityProtection","detectionTimingType":"offline","riskEventType":"anonymizedIPAddress","detectorId":"UnfamiliarLocation","ipAddress":"40.220.102.15","userId":"8c4f6c81dd9322ac524dc5f73f340464","tenantId":"a1b2c3d4-e5f6-78a9-b0c1-d2e3f4g5h6i7","incidentId":"14","correlationId":"54e88d5cf59b29f74c33a7a76c70c5a1","requestId":"6354ca027a4845fb824f8cb3f1362b4a","providerAlertId":"afeaa0a6f464bc518db47d8890d176d34eec14a4893c3c14e659ea008916d48f","alertWebUrl":"https://security.microsoft.com/alerts/adfc42fdba71ff63845eb980ef79cf005919d5e338","incidentWebUrl":"https://security.microsoft.com/incident2/14/overview"}}
 
+{"integration":"docker","docker":{"Type":"container","Action":"start","status":"start","from":"repo/app:1.0","time":"1761612510","timeNano":"1761612510123000000.000000","Actor":{"ID":"a1b2c3d4e5f6","Attributes":{"name":"web_app","image":"repo/app:1.0"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"create","status":"create","from":"repo/app:1.0","time":"1761612508","timeNano":"1761612508623000000.000000","Actor":{"ID":"a1b2c3d4e5f6","Attributes":{"name":"web_app","image":"repo/app:1.0"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"start","status":"start","from":"repo/app:1.0","time":"1761612510","timeNano":"1761612510123000000.000000","Actor":{"ID":"a1b2c3d4e5f6","Attributes":{"name":"web_app","image":"repo/app:1.0"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"stop","status":"stop","from":"repo/app:1.0","time":"1761612515","timeNano":"1761612515432000000.000000","Actor":{"ID":"a1b2c3d4e5f6","Attributes":{"name":"web_app","image":"repo/app:1.0"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"stop","status":"stop","from":"repo/app:1.0","time":"1761612515","timeNano":"1761612515432000000.000000","Actor":{"ID":"a1b2c3d4e5f6","Attributes":{"name":"web_app","image":"repo/app:1.0"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"stop","status":"stop","from":"repo/app:1.0","time":"1761612515","timeNano":"1761612515432000000.000000","Actor":{"ID":"a1b2c3d4e5f6","Attributes":{"name":"web_app","image":"repo/app:1.0"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"pause","status":"pause","from":"-","time":"1761612520","timeNano":"1761612520123000000.000000","Actor":{"ID":"0f9e8d7c6b5a","Attributes":{"name":"db_container","image":"postgres:16-alpine"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"stop","status":"stop","from":"repo/app:1.0","time":"1761612515","timeNano":"1761612515432000000.000000","Actor":{"ID":"a1b2c3d4e5f6","Attributes":{"name":"web_app","image":"repo/app:1.0"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"start","status":"start","from":"repo/app:1.0","time":"1761612510","timeNano":"1761612510123000000.000000","Actor":{"ID":"a1b2c3d4e5f6","Attributes":{"name":"web_app","image":"repo/app:1.0"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"unpause","status":"unpause","from":"-","time":"1761612525","timeNano":"1761612525678000000.000000","Actor":{"ID":"0f9e8d7c6b5a","Attributes":{"name":"db_container","image":"postgres:16-alpine"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"exec_start: bash ","status":"exec_start: bash ","from":"repo/app:1.0","time":"1761612530","timeNano":"1761612530456000000.000000","Actor":{"ID":"5520473e8f5bba53e4e68077c8b2538ecf648db4737d41dfe71fc01063d76f8a","Attributes":{"name":"web_app","image":"repo/app:1.0","execID":"c96335834e049337c391c87b8e0ff46a09fee75bb0d98e11b33bedb2353b61e2"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"archive-path","status":"archive-path","from":"-","time":"1761612545","timeNano":"1761612545899000000.000000","Actor":{"ID":"aabbccddeeff00112233445566778899","Attributes":{"name":"db_container","image":"postgres:16-alpine","path":"/var/lib/postgresql/data/backup.sql"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"archive-path","status":"archive-path","from":"-","time":"1761612545","timeNano":"1761612545899000000.000000","Actor":{"ID":"aabbccddeeff00112233445566778899","Attributes":{"name":"db_container","image":"postgres:16-alpine","path":"/var/lib/postgresql/data/backup.sql"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"stop","status":"stop","from":"repo/app:1.0","time":"1761612515","timeNano":"1761612515432000000.000000","Actor":{"ID":"a1b2c3d4e5f6","Attributes":{"name":"web_app","image":"repo/app:1.0"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"restart","status":"restart","from":"redis:7-alpine","time":"1761612555","timeNano":"1761612555123000000.000000","Actor":{"ID":"11223344556677889900aabbccddeeff","Attributes":{"name":"redis_cache","image":"redis:7-alpine"}}}}
+{"integration":"docker","docker":{"Type":"container","Action":"update","status":"update","from":"repo/app:1.0","time":"1761612550","timeNano":"1761612550345000000.000000","Actor":{"ID":"ddeeccbb0099","Attributes":{"name":"web_app","image":"repo/app:1.0","cpus":"2","memory":"1024Mi"}}}}
+
+{"integration":"docker","docker":{"Type":"image","Action":"pull","status":"pull","from":"repo/app-backend:2.3.1","time":"1761612570","timeNano":"1761612570789000000.000000","Actor":{"ID":"repo/app-backend:2.3.1","Attributes":{"name":"repo/app-backend","version":"2.3.1","maintainer":"Example Maintainers <maintainers@example.com>"}}}}
+
+{"integration":"docker","docker":{"Type":"container","Action":"pause","status":"pause","from":"-","time":"1761612520","timeNano":"1761612520123000000.000000","Actor":{"ID":"0f9e8d7c6b5a","Attributes":{"name":"db_container","image":"postgres:16-alpine"}}}}
+
 
 
 
