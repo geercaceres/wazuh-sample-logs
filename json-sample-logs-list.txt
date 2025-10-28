@@ -227,6 +227,23 @@ Google Workspace
 
 {"integration":"docker","docker":{"Type":"container","Action":"pause","status":"pause","from":"-","time":"1761612520","timeNano":"1761612520123000000.000000","Actor":{"ID":"0f9e8d7c6b5a","Attributes":{"name":"db_container","image":"postgres:16-alpine"}}}}
 
+{"integration":"github","github":{"@timestamp":"2025-10-27T12:20:27.243+0000","actor":"dev-user","action":"git.clone","org":"acme-org","repo":"acme-org/payments-service","repository":"acme-org/payments-service","repository_public":"false","transport_protocol_name":"http","transport_protocol":"1","actor_location":{"country_code":"US"}}}
+
+{"integration":"github","github":{"@timestamp":"2025-10-27T12:18:39.636+0000","created_at":"2025-10-27T12:18:39.636+0000","actor":"org-admin","action":"org.enable_member_team_creation_permission","org":"acme-org","user":"dev-user","actor_location":{"country_code":"US"},"_document_id":"abc123xyz-enable-team-create"}}
+
+{"integration":"github","github":{"@timestamp":"2025-10-27T12:20:27.243+0000","actor":"dev-user","action":"git.clone","org":"acme-org","repo":"acme-org/payments-service","repository":"acme-org/payments-service","repository_public":"false","transport_protocol_name":"http","transport_protocol":"1","actor_location":{"country_code":"US"}}}
+
+{"integration":"github","github":{"@timestamp":"2025-10-27T12:22:44.307+0000","actor":"dev-user","action":"git.push","org":"acme-org","repo":"acme-org/mobile-app","repository":"acme-org/mobile-app","repository_public":"false","transport_protocol_name":"http","transport_protocol":"1","actor_location":{"country_code":"BR"}}}
+
+{"integration":"github","github":{"@timestamp":"2025-10-27T12:25:32.508+0000","created_at":"2025-10-27T12:25:32.508+0000","actor":"sec-admin","action":"team.add_member","org":"acme-org","team":"acme-org/backend","user":"new-contractor","actor_location":{"country_code":"ES"},"_document_id":"teamadd-20251027-001"}}
+
+{"integration":"github","github":{"@timestamp":"2025-10-27T12:32:08.541+0000","created_at":"2025-10-27T12:32:08.541+0000","actor":"sec-admin","action":"hook.events_changed","org":"acme-org","hook_id":"999888777","name":"webhook","active":"true","config":{"content_type":"json","insecure_ssl":"0","secret":"********","url":"https://webhook.internal.local/github"},"events":["push","deployment","issues","pull_request"],"events_were":["push"],"actor_location":{"country_code":"US"},"_document_id":"hookchange-20251027-abc"}}
+
+{"integration":"github","github":{"@timestamp":"2025-10-27T12:18:39.636+0000","created_at":"2025-10-27T12:18:39.636+0000","actor":"org-admin","action":"org.enable_member_team_creation_permission","org":"acme-org","user":"dev-user","actor_location":{"country_code":"US"},"_document_id":"abc123xyz-enable-team-create"}}
+
+{"integration":"github","github":{"@timestamp":"2025-10-27T12:33:41.634+0000","created_at":"2025-10-27T12:33:41.634+0000","actor":"org-admin","action":"org.update_default_repository_permission","org":"acme-org","actor_location":{"country_code":"US"},"_document_id":"permission-update-20251027-777"}}
+
+{"integration":"github","github":{"@timestamp":"2025-10-27T12:53:43.028+0000","created_at":"2025-10-27T12:53:43.028+0000","actor":"dev-user","action":"repo.create","org":"acme-org","repo":"acme-org/new-service-api","visibility":"public","actor_location":{"country_code":"GR"},"_document_id":"repo-create-20251027-xyz"}}
 
 
 
