@@ -22,7 +22,7 @@ sudo chmod +x /usr/local/bin/wz-logfeeder.sh
 ```bash
 sudo /usr/local/bin/wz-logfeeder.sh start
 ```
-Default behavior: appends 100 JSON logs every 10 minutes.
+Default behavior: appends 100 logs every 10 minutes.
 The service runs in background (no need to keep the terminal open).
 
 Check status:
