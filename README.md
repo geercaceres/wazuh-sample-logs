@@ -96,8 +96,9 @@ You can change the feed speed easily:
 sudo LINES_PER_TICK=300 SLEEP_SECONDS=300 /usr/local/bin/wz-logfeeder.sh start
 ```
 
-## 6️⃣ Stop or restart
+## 6️⃣ Status, Stop or restart
 ```bash
+sudo /usr/local/bin/wz-logfeeder.sh status
 sudo /usr/local/bin/wz-logfeeder.sh stop
 sudo /usr/local/bin/wz-logfeeder.sh start
 ```
