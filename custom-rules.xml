@@ -246,6 +246,145 @@
     
     </group>
 
+<!-- Zeek + Modbus rules -->
+<group name="zeek">
+  <rule id="130001" level="5"> 
+    <field name="dnsquery">\.+</field>
+    <description>Zeek: DNS Query $(dnsquery) attempted from source ip $(src_ip) and source port $(src_port) resolved IP $(resolved_by) </description>
+  </rule>
+  <rule id="130002" level="3">
+    <field name="src_port">5353</field>
+    <description>Zeek: DNS Query $(dnsquery) attempted from source port 5353</description>
+  </rule>
+  <rule id="130003" level="7">
+    <field name="connection_state">REJ</field>
+    <description>Zeek: Connection from $(src_ip) to $(dst_ip) $(dst_port) rejected </description>
+  </rule>
+  <rule id="130004" level="3">
+    <field name="src_port">5355</field>
+    <description>Zeek: DNS Query $(dnsquery) attempted from destination port 5355</description>
+  </rule>
+  <rule id="130005" level="3">
+    <field name="dnsquery">otx.alienvault.com</field>
+    <description>Zeek: DNS Query $(dnsquery) exclude</description>
+  </rule>
+  <rule id="130006" level="3">
+    <field name="dnsquery">cti.wazuh.com</field>
+    <description>Zeek: DNS Query $(dnsquery) exclude</description>
+  </rule>
+
+  <rule id="139012" level="3">
+    <field name="dst_port">22</field>
+    <field name="connection_state">OTH</field>
+    <description>Zeek: SSH connection  from $(src_ip) to $(dst_ip)</description>
+  </rule>
+  <rule id="130007" level="5">
+    <field name="dst_port">22</field>
+    <description>Zeek: SSH connection  from $(src_ip) to $(dst_ip) for $(duration_of_the_connection) seconds</description>
+  </rule>
+  <rule id="139008" frequency="3" timeframe="60" level="10">
+    <if_matched_sid>130007</if_matched_sid>
+    <field name="dst_port">22</field>
+    <field name="software_name">inappropriate_FIN</field>
+    <field name="src_ip">\.*</field>
+    <description>Potential SSH brute-force attempt: Zeek 'data_before_established' on port 22</description>
+  </rule>
+  <rule id="139011" level="7">
+    <field name="software_name">data_before_established</field>
+    <field name="src_ip">\.*</field>
+    <field name="dst_port">\.*</field>
+    <description>Zeek: Suspecious Activity detected from source ip $(src_ip) to destination port $(dst_port)</description>
+  </rule>
+  <rule id="139009" frequency="5" timeframe="10" level="10">
+    <if_matched_sid>139011</if_matched_sid>
+    <field name="software_name">data_before_established</field>
+    <description>Zeek anomaly: Multiple 'data_before_established' connections from same IP — possible TCP scan</description>
+  </rule>
+
+  <rule id="139010" level="12" timeframe="60" frequency="2">
+    <if_matched_sid>139011</if_matched_sid>
+    <field name="software_name">data_before_established</field>
+    <field name="src_ip">\.*</field>
+    <field name="dst_port">\.*</field>
+    <description>TCP scanning detected: Source IP triggered both data_before_established and inappropriate_FIN anomalies</description>
+  </rule>
+  <rule id="139013" level="7">
+    <field name="software_name">bad_HTTP_request</field>
+    <description>Zeek anomaly: Suspecious HTTP request from source IP $(src_ip) to destination port $(dst_port)</description>
+  </rule>
+  <rule id="139014" frequency="3" timeframe="30" level="10">
+    <if_matched_sid>139013</if_matched_sid>
+    <description>Possible DoS attack: $(src_ip) triggered Zeek weird log 10 times in 30 seconds</description>
+  </rule>
+
+<rule id="139015" level="3">
+    <field name="function">READ_INPUT_REGISTERS</field>
+    <description>OT Modbus READ_INPUT_REGISTERS observed (normal polling)</description>
+  </rule>
+<rule id="139016" frequency="3" timeframe="60" level="10">
+    <if_matched_sid>139015</if_matched_sid>
+    <description>OT ALERT: Excessive Modbus READ_INPUT_REGISTERS requests detected from $(src_ip)</description>
+  </rule>
+<rule id="139017" level="12">
+    <field name="function">WRITE_MULTIPLE_COILS</field>
+    <description>OT CRITICAL: PLC process manipulation attempt detected from $(src_ip)</description>
+  </rule>
+<rule id="139018" level="9">
+    <field name="exception">ILLEGAL_DATA_ADDRESS</field>
+    <description>OT ALERT: Modbus request rejected by PLC (Illegal Data Address) from $(src_ip)</description>
+  </rule>
+<rule id="139019" level="12" frequency="2" timeframe="60">
+    <if_matched_sid>139018</if_matched_sid>
+    <description>OT ALERT: Repeated Modbus illegal address requests (probing behavior) from $(src_ip)</description>
+  </rule>
+</group>
+<!--
+<group name="attack,">
+  <rule id="139020" level="10">
+    <if_sid>139019</if_sid>
+    <list field="src_ip" lookup="address_match_key">etc/lists/malicious-ioc/malicious-ip</list>
+    <description>Probing IP found in blacklisted database.</description>
+  </rule>
+
+</group>
+ -->
+
+<!-- custom Suricata rules -->
+<group name="custom_active_response_rules,">
+  <rule id="300200" level="12">
+    <if_sid>86600</if_sid>
+    <field name="event_type">^alert$</field>
+    <match>ET DOS Inbound GoldenEye DoS attack</match>
+    <description>GoldenEye DoS attack has been detected. </description>
+    <mitre>
+      <id>T1498</id>
+    </mitre>
+  </rule>
+
+  <rule id="300201" level="12">
+    <if_sid>86600</if_sid>
+    <field name="event_type">^alert$</field>
+    <match>ET SCAN Nmap Scripting Engine User-Agent Detected (Nmap Scripting Engine)</match>
+    <description>Nmap scripting engine detected. </description>
+    <mitre>
+      <id>T1595</id>
+    </mitre>
+  </rule>
+  <rule id="300202" level="5">
+    <if_sid>86602</if_sid>
+    <field name="http.url">\.*</field>
+    <match>modbus</match>
+    <description>Modbus: Communication detected from source ip $(src_ip) and source port $(src_port) with status code $(http.status). </description>
+  </rule>
+  <rule id="300203" level="10">
+    <if_sid>86600</if_sid>
+    <field name="http.http_method">POST</field>
+    <description>Modbus: Unauthorized modification attempt detected from source ip $(src_ip) and source port $(src_port) with status code $(http.status). </description>
+  </rule>
+</group>
+
+
+
 
 
 
