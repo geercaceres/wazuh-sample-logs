@@ -24,3 +24,31 @@ date=2023-04-05 time=11:38:06 devname=BORDER-FGT devid=FGT60FTK19009408 eventtim
 date=2019-05-15 time=16:18:17 logid="1601061010" type="utm" subtype="ssh" eventtype="ssh-channel" level="warning" vd="vdom1" eventtime=1557962296 policyid=1 sessionid=344 profile="ssh-deepscan" srcip=10.1.100.11 srcport=43580 dstip=172.16.200.44 dstport=22 srcintf="port21" srcintfrole="undefined" dstintf="port23" dstintfrole="undefined" proto=6 action="blocked" direction="outgoing" login="root" channeltype="shell"
 date=2019-05-15 time=16:18:18 logid="0000000013" type="traffic" subtype="forward" level="notice" vd="vdom1" eventtime=1557962298 srcip=10.1.100.11 srcport=43580 srcintf="port21" srcintfrole="undefined" dstip=172.16.200.44 dstport=22 dstintf="port23" dstintfrole="undefined" poluuid="49871fae-7371-51e9-17b4-43c7ff119195" sessionid=344 proto=6 action="close" policyid=1 policytype="policy" service="SSH" dstcountry="Reserved" srccountry="Reserved" trandisp="snat" transip=172.16.200.171 transport=43580 duration=8 sentbyte=3093 rcvdbyte=2973 sentpkt=18 rcvdpkt=16 appcat="unscanned" utmaction="block" countssh=1 utmref=65535-0
 date=2019-05-10 time=15:48:31 logid="0105048038" type="event" subtype="wad" level="error" vd="root" eventtime=1557528511221374615 logdesc="SSL Fatal Alert received" session_id=5f88ddd1 policyid=0 srcip=172.18.70.15 srcport=59880 dstip=91.189.89.223 dstport=443 action="receive" alert="2" desc="unknown ca" msg="SSL Alert received"
+2026-01-09 01:24:30 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Client 127.0.0.1 disconnected
+2026-01-09 01:24:11 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Receive file [Agent][Temp]\upload_config_7593166519820543762.zip
+2026-01-09 01:24:11 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] User ScadaAdmin is successfully authenticated
+2026-01-09 01:24:11 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] User Gerard is successfully authenticated
+2026-01-09 13:34:24 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] User admin is logged out, IP ::1
+2026-01-09 01:24:11 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] User George is successfully authenticated
+2026-01-09 01:24:10 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Session with ID -520156500016450721 created
+2026-01-09 01:24:10 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Client 127.0.0.1 connected
+2026-01-09 15:15:07 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ERR] Data source ScadaServer: Error transferring current data:
+Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host..
+2026-01-12 20:14:43 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ERR] Data source ScadaServer: Error receiving telecontrol commands:
+Unable to read data from the transport connection: An established connection was aborted by the software in your host machine..
+2026-01-12 20:14:47 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ERR] Data source ScadaServer: Error transferring current data:
+No connection could be made because the target machine actively refused it. [::ffff:127.0.0.1]:10000
+2026-01-09 15:15:07 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Data source ScadaServer: Connection state is Error
+2026-01-09 15:15:08 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Communicator is stopped
+2026-01-09 15:16:25 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Communicator 6.2.0.1 started
+2026-01-09 15:15:07 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Stop communication lines
+2026-01-09 15:15:07 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] All communication lines are stopped
+2026-01-09 15:15:07 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Stop listener
+2026-01-09 15:15:07 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Listener is stopped
+2026-01-09 15:15:07 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Agent is stopped
+2026-01-09 01:24:11 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] User Alex is successfully authenticated
+2026-01-09 13:34:24 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] User admin is logged out, IP ::1
+2026-01-09 01:24:10 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Client 127.0.0.1 connected
+2026-01-09 01:05:11 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] The configuration database has been read successfully
+2026-01-09 01:24:30 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Client 127.0.0.1 disconnected
+
