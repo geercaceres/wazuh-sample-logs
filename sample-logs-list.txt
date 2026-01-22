@@ -51,4 +51,21 @@ No connection could be made because the target machine actively refused it. [::f
 2026-01-09 01:24:10 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Client 127.0.0.1 connected
 2026-01-09 01:05:11 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] The configuration database has been read successfully
 2026-01-09 01:24:30 [EC2AMAZ-03EPKQT][EC2AMAZ-03EPKQT$][ACT] Client 127.0.0.1 disconnected
+2026-02-01 08:12:01 [SCADA-DEMO][SCADA-DEMO$][ACT] Agent 6.2.0.1 started
+2026-02-01 08:12:01 [SCADA-DEMO][SCADA-DEMO$][ACT] Start logic processing
+2026-02-01 08:12:01 [SCADA-DEMO][SCADA-DEMO$][ACT] Start listener on port 10002
+2026-02-01 08:12:15 [SCADA-DEMO][SCADA-DEMO$][ACT] Session with ID 892736451234 created
+2026-02-01 08:12:15 [SCADA-DEMO][SCADA-DEMO$][ACT] Client 10.10.10.50 connected
+2026-02-01 08:12:16 [SCADA-DEMO][SCADA-DEMO$][ACT] User ScadaAdmin is successfully authenticated
+2026-02-01 08:12:20 [SCADA-DEMO][SCADA-DEMO$][ACT] Receive file [Agent]\[Temp]\upload_config_998877665544.zip
+2026-02-01 08:12:45 [SCADA-DEMO][SCADA-DEMO$][ACT] Temporary file upload_config_998877665544.zip deleted
+2026-02-01 08:14:02 [SCADA-DEMO][SCADA-DEMO$][ACT] Client 10.10.10.50 disconnected
+2026-02-01 09:33:10 [SCADA-DEMO][SCADA-DEMO$][ACT] Session with ID -338912345678 created
+2026-02-01 09:33:10 [SCADA-DEMO][SCADA-DEMO$][ACT] Client 192.168.50.23 connected
+2026-02-01 09:33:11 [SCADA-DEMO][SCADA-DEMO$][ACT] User operator is successfully authenticated
+2026-02-01 11:45:55 [SCADA-DEMO][SCADA-DEMO$][ACT] Stop listener
+2026-02-01 11:45:55 [SCADA-DEMO][SCADA-DEMO$][ACT] Listener is stopped
+2026-02-01 11:45:55 [SCADA-DEMO][SCADA-DEMO$][ACT] Logic processing is stopped
+2026-02-01 11:45:55 [SCADA-DEMO][SCADA-DEMO$][ACT] Agent is stopped
+
 
