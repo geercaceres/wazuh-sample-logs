@@ -330,9 +330,11 @@ Google Workspace
 {"integration":"modbus","modbus":{"ts":1767685437.209238,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"203.0.113.50","id.orig_p":45636,"id.resp_h":"54.182.77.31","id.resp_p":502,"tid":1,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"RESP"}}
 
 {"integration":"modbus","modbus":{"ts":1767685437.141122,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"203.0.113.51","id.orig_p":45637,"id.resp_h":"54.182.77.31","id.resp_p":502,"tid":1,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"REQ"}}
+
 {"integration":"modbus","modbus":{"ts":1767685438.140398,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"198.51.100.15","id.orig_p":45635,"id.resp_h":"52.95.110.18","id.resp_p":1522,"tid":2,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"REQ"}}
 
 {"integration":"modbus","modbus":{"ts":1767685437.209238,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"203.0.113.50","id.orig_p":45636,"id.resp_h":"54.182.77.31","id.resp_p":2042,"tid":1,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"RESP"}}
 
 {"integration":"modbus","modbus":{"ts":1767685437.141122,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"203.0.113.51","id.orig_p":45637,"id.resp_h":"54.182.77.31","id.resp_p":2042,"tid":1,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"REQ"}}
+
 
