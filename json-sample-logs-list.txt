@@ -245,6 +245,61 @@ Google Workspace
 
 {"integration":"github","github":{"@timestamp":"2025-10-27T12:53:43.028+0000","created_at":"2025-10-27T12:53:43.028+0000","actor":"dev-user","action":"repo.create","org":"acme-org","repo":"acme-org/new-service-api","visibility":"public","actor_location":{"country_code":"GR"},"_document_id":"repo-create-20251027-xyz"}}
 
+{"ts":1767685437.141122,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":1,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"REQ"}
+
+{"ts":1767685437.209238,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":1,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"RESP"}
+
+{"ts":1767685438.140398,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":2,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"REQ"}
+
+{"ts":1767685438.148885,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":2,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"RESP"}
+
+{"ts":1767685629.063279,"uid":"CSpdy04bYfHmwWRSli","id.orig_h":"192.168.138.10","id.orig_p":50452,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":1,"unit":1,"func":"WRITE_MULTIPLE_COILS","pdu_type":"REQ"}
+
+{"ts":1767685629.16155,"uid":"CSpdy04bYfHmwWRSli","id.orig_h":"192.168.138.10","id.orig_p":50452,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":1,"unit":1,"func":"WRITE_MULTIPLE_COILS","pdu_type":"RESP"}
+
+{"ts":1767685739.332583,"uid":"CklGWYu6vj2zddy15","id.orig_h":"192.168.138.10","id.orig_p":58808,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":12420,"unit":2,"func":"READ_COILS_EXCEPTION","pdu_type":"RESP","exception":"ILLEGAL_DATA_ADDRESS"}
+
+{"timestamp":"2025-12-19T10:40:31.651787+0000","flow_id":1359314929636038,"in_iface":"ens37","event_type":"alert","src_ip":"192.168.138.10","src_port":59722,"dest_ip":"192.168.138.100","dest_port":502,"proto":"TCP","alert":{"action":"allowed","gid":1,"signature_id":900100,"rev":1,"signature":"OT TEST: Modbus TCP traffic observed","category":"","severity":3},"app_proto":"modbus","flow":{"pkts_toserver":57,"pkts_toclient":29,"bytes_toserver":4106,"bytes_toclient":2219,"start":"2025-12-19T10:40:04.643782+0000"}}
+
+{"timestamp":"2025-12-19T10:40:31.652629+0000","flow_id":1359314929636038,"in_iface":"ens37","event_type":"alert","src_ip":"192.168.138.10","src_port":59722,"dest_ip":"192.168.138.100","dest_port":502,"proto":"TCP","alert":{"action":"allowed","gid":1,"signature_id":900100,"rev":1,"signature":"OT TEST: Modbus TCP traffic observed","category":"","severity":3},"app_proto":"modbus","flow":{"pkts_toserver":58,"pkts_toclient":30,"bytes_toserver":4172,"bytes_toclient":2296,"start":"2025-12-19T10:40:04.643782+0000"}}
+
+{"timestamp":"2025-12-19T10:40:32.651172+0000","flow_id":1359314929636038,"in_iface":"ens37","event_type":"alert","src_ip":"192.168.138.10","src_port":59722,"dest_ip":"192.168.138.100","dest_port":502,"proto":"TCP","alert":{"action":"allowed","gid":1,"signature_id":900100,"rev":1,"signature":"OT TEST: Modbus TCP traffic observed","category":"","severity":3},"app_proto":"modbus","flow":{"pkts_toserver":59,"pkts_toclient":30,"bytes_toserver":4250,"bytes_toclient":2296,"start":"2025-12-19T10:40:04.643782+0000"}}
+
+{"ts":1766310221.8280461,"uid":"CcS8Vg3tq2ydpEkDD9","id.orig_h":"192.168.138.10","id.orig_p":49242,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":12420,"unit":2,"func":"READ_COILS_EXCEPTION","pdu_type":"RESP","exception":"ILLEGAL_DATA_ADDRESS"}
+
+{"ts":1766310221.8280461,"uid":"CcS8Vg3tq2ydpEkDD9","id.orig_h":"192.168.138.10","id.orig_p":49242,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":12420,"unit":2,"func":"READ_COILS_EXCEPTION","pdu_type":"RESP","exception":"ILLEGAL_DATA_ADDRESS"}
+
+{"ts":1767685437.209238,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":1,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"RESP"}
+
+{"ts":1767685438.140398,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":2,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"REQ"}
+
+{"ts":1767685438.148885,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":2,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"RESP"}
+
+{"ts":1767685437.209238,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":1,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"RESP"}
+
+{"ts":1767685438.140398,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":2,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"REQ"}
+
+{"ts":1767685438.148885,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":2,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"RESP"}
+
+{"timestamp":"2025-12-19T10:40:32.651172+0000","flow_id":1359314929636038,"in_iface":"ens37","event_type":"alert","src_ip":"192.168.138.10","src_port":59722,"dest_ip":"192.168.138.100","dest_port":502,"proto":"TCP","alert":{"action":"allowed","gid":1,"signature_id":900100,"rev":1,"signature":"OT TEST: Modbus TCP traffic
+
+{"timestamp":"2025-12-19T10:40:32.651172+0000","flow_id":1359314929636038,"in_iface":"ens37","event_type":"alert","src_ip":"192.168.138.10","src_port":59722,"dest_ip":"192.168.138.100","dest_port":502,"proto":"TCP","alert":{"action":"allowed","gid":1,"signature_id":900100,"rev":1,"signature":"OT TEST: Modbus TCP traffic
+
+{"timestamp":"2025-12-19T10:40:32.651172+0000","flow_id":1359314929636038,"in_iface":"ens37","event_type":"alert","src_ip":"192.168.138.10","src_port":59722,"dest_ip":"192.168.138.100","dest_port":502,"proto":"TCP","alert":{"action":"allowed","gid":1,"signature_id":900100,"rev":1,"signature":"OT TEST: Modbus TCP traffic observed","category":"","severity":3},"app_proto":"modbus","flow":{"pkts_toserver":59,"pkts_toclient":30,"bytes_toserver":4250,"bytes_toclient":2296,"start":"2025-12-19T10:40:04.643782+0000"}}
+
+{"timestamp":"2025-12-19T10:40:32.651172+0000","flow_id":1359314929636038,"in_iface":"ens37","event_type":"alert","src_ip":"192.168.138.10","src_port":59722,"dest_ip":"192.168.138.100","dest_port":502,"proto":"TCP","alert":{"action":"allowed","gid":1,"signature_id":900100,"rev":1,"signature":"OT TEST: Modbus TCP traffic observed","category":"","severity":3},"app_proto":"modbus","flow":{"pkts_toserver":59,"pkts_toclient":30,"bytes_toserver":4250,"bytes_toclient":2296,"start":"2025-12-19T10:40:04.643782+0000"}}
+
+{"ts":1767685438.140398,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":2,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"REQ"}
+
+{"ts":1767685438.140398,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":2,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"REQ"}
+
+{"ts":1767685437.141122,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":1,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"REQ"}
+
+{"ts":1767685437.141122,"uid":"CaCcrQ2N1MGCloBU0e","id.orig_h":"192.168.138.10","id.orig_p":45630,"id.resp_h":"192.168.138.100","id.resp_p":502,"tid":1,"unit":1,"func":"READ_INPUT_REGISTERS","pdu_type":"REQ"}
+
+{"timestamp":"2025-12-19T10:40:32.651172+0000","flow_id":1359314929636038,"in_iface":"ens37","event_type":"alert","src_ip":"192.168.138.10","src_port":59722,"dest_ip":"192.168.138.100","dest_port":502,"proto":"TCP","alert":{"action":"allowed","gid":1,"signature_id":900100,"rev":1,"signature":"OT TEST: Modbus TCP traffic
+
+{"timestamp":"2025-12-19T10:40:32.651172+0000","flow_id":1359314929636038,"in_iface":"ens37","event_type":"alert","src_ip":"192.168.138.10","src_port":59722,"dest_ip":"192.168.138.100","dest_port":502,"proto":"TCP","alert":{"action":"allowed","gid":1,"signature_id":900100,"rev":1,"signature":"OT TEST: Modbus TCP traffic observed","category":"","severity":3},"app_proto":"modbus","flow":{"pkts_toserver":59,"pkts_toclient":30,"bytes_toserver":4250,"bytes_toclient":2296,"start":"2025-12-19T10:40:04.643782+0000"}}
 
 
 
