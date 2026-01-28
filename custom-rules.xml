@@ -560,4 +560,42 @@
     <mitre><id>T1489</id></mitre>
   </rule>
 
+
+  <!-- coudh db -- >
+
+  <!-- Modify it at your will. -->
+
+<group name="couchdb">
+<rule id="300100" level="8">
+    <if_sid>30103</if_sid>
+    <match>^[notice] </match>
+    <field name="http_method">PUT</field>
+    <description>CouchDB: document added by user $(dstuser) from $(srcip) on $(dstip) - Endpoint: $(endpoint)</description>
+  </rule>
+<rule id="300101" level="5">
+    <if_sid>30103</if_sid>
+    <match>^[notice] </match>
+    <field name="http_method">GET</field>
+    <description>CouchDB: document viewed by user $(dstuser) from $(srcip) on $(dstip) - Endpoint: $(endpoint)</description>
+  </rule>
+<rule id="300102" level="8">
+    <if_sid>30103</if_sid>
+    <match>^[notice] </match>
+    <field name="http_method">DELETE</field>
+    <description>CouchDB: document deleted by user $(dstuser) from $(srcip) on $(dstip) - Endpoint: $(endpoint)</description>
+  </rule>
+<rule id="300103" level="8">
+    <if_sid>30103</if_sid>
+    <match>^[notice] </match>
+    <field name="http_method">POST</field>
+    <description>CouchDB: document modified by user $(dstuser) from $(srcip) on $(dstip) - Endpoint: $(endpoint)</description>
+  </rule>
+<rule id="300104" level="10">
+    <if_sid>2501</if_sid>
+    <match>^[warning] </match>
+    <description>CouchDB: Authentication failed user $(dstuser) from $(srcip)</description>
+  </rule>
 </group>
+
+</group>
+
