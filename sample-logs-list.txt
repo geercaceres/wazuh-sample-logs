@@ -67,5 +67,38 @@ No connection could be made because the target machine actively refused it. [::f
 2026-02-01 11:45:55 [SCADA-DEMO][SCADA-DEMO$][ACT] Listener is stopped
 2026-02-01 11:45:55 [SCADA-DEMO][SCADA-DEMO$][ACT] Logic processing is stopped
 2026-02-01 11:45:55 [SCADA-DEMO][SCADA-DEMO$][ACT] Agent is stopped
+[notice] 2026-01-14T07:25:04.319876Z nonode@nohost <0.27469.3> 1e4aeddfdd 192.168.29.26:5984 192.168.29.169 undefined GET /_utils/ 304 ok 6
+[notice] 2026-01-14T07:25:04.544860Z nonode@nohost <0.27469.3> 8e57c8af6d 192.168.29.26:5984 192.168.29.169 undefined GET / 200 ok 1
+[notice] 2026-01-14T07:25:04.588608Z nonode@nohost <0.27469.3> 06a2cd69d8 192.168.29.26:5984 192.168.29.169 undefined GET / 200 ok 1
+[notice] 2026-01-14T07:25:04.592662Z nonode@nohost <0.27469.3> 2f726e16d5 192.168.29.26:5984 192.168.29.169 undefined GET /_session 200 ok 2
+[notice] 2026-01-14T07:28:12.005073Z nonode@nohost <0.30845.3> 1db3211ceb 192.168.29.26:5984 192.168.29.169 undefined POST /_session 200 ok 94
+[notice] 2026-01-14T07:28:12.050984Z nonode@nohost <0.30845.3> 85c2d989fc 192.168.29.26:5984 192.168.29.169 couchadmin GET /_session 200 ok 1
+[notice] 2026-01-14T07:28:12.168752Z nonode@nohost <0.30845.3> 6d91e20b30 192.168.29.26:5984 192.168.29.169 couchadmin GET /_all_dbs 304 ok 43
+[notice] 2026-01-14T07:28:12.300441Z nonode@nohost <0.30846.3> 57bb6209be 192.168.29.26:5984 192.168.29.169 couchadmin GET /_users 200 ok 31
+[notice] 2026-01-14T07:28:12.300502Z nonode@nohost <0.30845.3> 95c220bda5 192.168.29.26:5984 192.168.29.169 couchadmin GET /_replicator 200 ok 39
+[notice] 2026-01-14T07:28:12.300953Z nonode@nohost <0.30848.3> 4b72d9a904 192.168.29.26:5984 192.168.29.169 couchadmin GET /company 200 ok 31
+[notice] 2026-01-14T07:28:12.302886Z nonode@nohost <0.30847.3> 3be7712b52 192.168.29.26:5984 192.168.29.169 couchadmin GET /address 200 ok 33
+[notice] 2026-01-14T07:28:12.523926Z nonode@nohost <0.30845.3> 25e83b1beb 192.168.29.26:5984 192.168.29.169 couchadmin GET /_all_dbs?startkey=%22%22&endkey=%22%E9%A6%99%22&limit=30 304 ok 1
+[warning] 2026-01-14T07:31:05.119985Z nonode@nohost <0.983.4> fda9574aea couch_httpd_auth: Authentication failed for user admin from 192.168.29.169
+[notice] 2026-01-14T07:31:05.121597Z nonode@nohost <0.983.4> fda9574aea 192.168.29.26:5984 192.168.29.169 undefined POST /_session 401 ok 2
+[notice] 2026-01-14T07:31:05.121597Z nonode@nohost <0.983.4> fda9574aea 192.168.29.26:5984 192.168.29.169 undefined POST /_session 401 ok 2
+[error] 2026-01-14T07:36:33.810920Z nonode@nohost <0.6418.4> b3bfe025dc Request to create N=3 DB but only 1 node(s)
+[notice] 2026-01-14T07:36:33.879339Z nonode@nohost <0.6418.4> b3bfe025dc 192.168.29.26:5984 192.168.29.26 couchadmin PUT /contacts 201 ok 102
+[notice] 2026-01-14T07:36:33.879339Z nonode@nohost <0.6418.4> b3bfe025dc 192.168.29.26:5984 192.168.29.26 couchadmin PUT /contacts 201 ok 102
+[notice] 2026-01-14T07:42:35.768039Z nonode@nohost <0.12373.4> 4d669a3539 192.168.29.26:5984 192.168.29.26 couchadmin POST /contacts 201 ok 73
+[notice] 2026-01-14T07:46:43.399544Z nonode@nohost <0.16486.4> ef6b46c243 192.168.29.26:5984 192.168.29.26 couchadmin DELETE /contacts 200 ok 22
+[notice] 2026-01-13T10:04:58.072565Z nonode@nohost <0.23014.5> 924aace575 192.168.29.26:5984 192.168.29.169 undefined POST /_session 200 ok 3
+[notice] 2026-01-13T10:04:58.130757Z nonode@nohost <0.23014.5> 31557cfe0b 192.168.29.26:5984 192.168.29.169 couchadmin GET /_session 200 ok 1
+[notice] 2026-01-13T10:04:58.155896Z nonode@nohost <0.23014.5> ee48fd3629 192.168.29.26:5984 192.168.29.169 couchadmin GET /_all_dbs 304 ok 7
+[notice] 2026-01-13T10:04:58.194693Z nonode@nohost <0.23075.5> f4521e2330 192.168.29.26:5984 192.168.29.169 couchadmin GET /_users 200 ok 4
+[notice] 2026-01-13T10:04:58.198690Z nonode@nohost <0.23080.5> 0c4450915f 192.168.29.26:5984 192.168.29.169 couchadmin GET /company 200 ok 7
+[notice] 2026-01-13T10:04:58.201061Z nonode@nohost <0.23014.5> 156c53c499 192.168.29.26:5984 192.168.29.169 couchadmin GET /_replicator 200 ok 16
+[notice] 2026-01-13T10:04:58.201733Z nonode@nohost <0.23079.5> 7386eb31c4 192.168.29.26:5984 192.168.29.169 couchadmin GET /address 200 ok 10
+[notice] 2026-01-13T10:04:58.559196Z nonode@nohost <0.23075.5> 5cb0f69b68 192.168.29.26:5984 192.168.29.169 couchadmin GET /_all_dbs?startkey=%22%22&endkey=%22%E9%A6%99%22&limit=30 304 ok 1
+[warning] 2026-01-13T10:22:45.858847Z nonode@nohost <0.8495.6> 8866b1d2cd couch_httpd_auth: Authentication failed for user admin from 192.168.29.169
+[notice] 2026-01-13T10:22:45.860211Z nonode@nohost <0.8495.6> 8866b1d2cd 192.168.29.26:5984 192.168.29.169 undefined POST /_session 401 ok 2
+[notice] 2026-01-13T11:03:18.918513Z nonode@nohost <0.15995.7> c0c1ac0cce 192.168.29.26:5984 192.168.29.169 couchadmin GET /_utils/ 200 ok 8
+[error] 2026-01-13T11:03:18.990787Z nonode@nohost <0.15995.7> b65d21ae8c req_err(1125717067) unknown_error : normal
+
 
 
