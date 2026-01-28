@@ -1,3 +1,5 @@
+<!-- rapid scada -->
+
 <decoder name="rapid-scada-ip">
   <parent>windows-date-format</parent>
   <use_own_name>true</use_own_name>
@@ -12,4 +14,47 @@
   <prematch offset="after_parent" type="pcre2">^\[.+\]\[.+\$\]\[\w\w\w\]</prematch>
   <regex offset="after_parent" type="pcre2">^\[(.+)\]\[.+\$\]\[(\w\w\w)\] (.+)</regex>
   <order>hostname, status, message</order>
+</decoder>
+
+<!-- couch db -->
+
+<decoder name="couchdb">
+    <prematch>Authentication failed for user</prematch>
+    <regex>Authentication failed for user (\S+) from (\S+)</regex>
+    <order>user, srcip</order>
+</decoder>
+<decoder name="couchdb">
+    <parent>apache-errorlog</parent>
+    <regex>(\d+.\d+.\d+.\d+)</regex>
+    <order>dstip</order>
+</decoder>
+<decoder name="couchdb">
+    <parent>apache-errorlog</parent>
+    <regex>\d+.\d+.\d+.\d+:(\d+)</regex>
+    <order>dstport</order>
+</decoder>
+<decoder name="couchdb">
+    <parent>apache-errorlog</parent>
+    <regex>\d+.\d+.\d+.\d+:\d+ (\d+.\d+.\d+.\d+)</regex>
+    <order>srcip</order>
+</decoder>
+<decoder name="couchdb">
+    <parent>apache-errorlog</parent>
+    <regex>\d+.\d+.\d+.\d+:\d+ \d+.\d+.\d+.\d+ (\w+)</regex>
+    <order>dstuser</order>
+</decoder>
+<decoder name="couchdb">
+    <parent>apache-errorlog</parent>
+    <regex>\d+.\d+.\d+.\d+:\d+ \d+.\d+.\d+.\d+ \w+ (\S+)</regex>
+    <order>http_method</order>
+</decoder>
+<decoder name="couchdb">
+    <parent>apache-errorlog</parent>
+    <regex>\d+.\d+.\d+.\d+:\d+ \d+.\d+.\d+.\d+ \w+ \w+ (\S+)</regex>
+    <order>endpoint</order>
+</decoder>
+<decoder name="couchdb">
+    <parent>apache-errorlog</parent>
+    <regex>\d+.\d+.\d+.\d+:\d+ \d+.\d+.\d+.\d+ \w+ \w+ \S+ (\S+)</regex>
+    <order>HTTP_status</order>
 </decoder>
