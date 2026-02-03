@@ -471,20 +471,18 @@
 <!-- Rapid SCADA log rules (NO location) -->
 <!-- =============================== -->
 <group name="rapid_scada,">
-
-  <!-- BASE -->
+<!--
   <rule id="111061" level="3">
     <decoded_as>rapid-scada-no-ip</decoded_as>
     <description>Rapid SCADA: $(status) - $(message).</description>
   </rule>
 
-  <!-- Errors -->
   <rule id="111062" level="7">
     <if_sid>111061</if_sid>
     <status type="pcre2">^ERR$</status>
     <description>Rapid SCADA ERROR: $(message).</description>
   </rule>
-
+-->
   <!-- Auth -->
   <rule id="111063" level="6">
     <if_sid>111061</if_sid>
@@ -561,7 +559,7 @@
   </rule>
 
 
-  <!-- coudh db -- >
+</group>
 
   <!-- Modify it at your will. -->
 
@@ -595,7 +593,5 @@
     <match>^[warning] </match>
     <description>CouchDB: Authentication failed user $(dstuser) from $(srcip)</description>
   </rule>
-</group>
-
 </group>
 
