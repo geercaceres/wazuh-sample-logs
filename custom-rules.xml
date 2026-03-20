@@ -325,7 +325,7 @@
     <if_matched_sid>139015</if_matched_sid>
     <description>OT ALERT: Excessive Modbus READ_INPUT_REGISTERS requests detected from $(src_ip)</description>
   </rule>
-<rule id="139017" level="12">
+<rule id="139017" level="10">
     <field name="function">WRITE_MULTIPLE_COILS</field>
     <description>OT CRITICAL: PLC process manipulation attempt detected from $(src_ip)</description>
   </rule>
@@ -333,7 +333,7 @@
     <field name="exception">ILLEGAL_DATA_ADDRESS</field>
     <description>OT ALERT: Modbus request rejected by PLC (Illegal Data Address) from $(src_ip)</description>
   </rule>
-<rule id="139019" level="12" frequency="2" timeframe="60">
+<rule id="139019" level="10" frequency="2" timeframe="60">
     <if_matched_sid>139018</if_matched_sid>
     <description>OT ALERT: Repeated Modbus illegal address requests (probing behavior) from $(src_ip)</description>
   </rule>
