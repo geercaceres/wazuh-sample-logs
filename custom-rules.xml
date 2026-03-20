@@ -18,7 +18,7 @@
     <description>$gworkspace_description</description>
   </rule>
 
-  <rule id="64602" level="12">
+  <rule id="64602" level="10">
     <if_sid>64600</if_sid>
     <field name="gworkspace.application">^wazuh extraction</field>
     <field name="gworkspace.eventname">^extraction warning</field>
@@ -71,14 +71,14 @@
     <group>DLP</group>
   </rule>
 
-  <rule id="64624" level="12">
+  <rule id="64624" level="10">
     <if_sid>64600</if_sid>
     <field name="gworkspace.application">^admin</field>
     <field name="gworkspace.eventtype">^delegated admin</field>
     <description>Google $(gworkspace.application) : sensitive "$(gworkspace.eventname)" activity by user $(user)</description>
   </rule>
 
-  <rule id="64626" level="12">
+  <rule id="64626" level="10">
     <if_sid>64600</if_sid>
     <field name="gworkspace.application">^access transparency</field>
     <description>Google Workspace : access to Workspace resources by Google</description>
@@ -118,7 +118,7 @@
     <group>DLP</group>
   </rule>
 
-  <rule id="64651" level="12" frequency="100" timeframe="300" ignore="600">
+  <rule id="64651" level="10" frequency="100" timeframe="300" ignore="600">
     <if_matched_sid>64600</if_matched_sid>
     <field name="gworkspace.application">^drive</field>
     <field name="gworkspace.eventname">^download</field>
@@ -157,7 +157,7 @@
     <description>Google $(gworkspace.application) : intensive "$(gworkspace.eventname)" activity by user $(user)</description>
   </rule>
 
-  <rule id="64654" level="12" frequency="30" timeframe="300" ignore="600">
+  <rule id="64654" level="10" frequency="30" timeframe="300" ignore="600">
     <if_matched_sid>64600</if_matched_sid>
     <field name="gworkspace.eventname">^login failure</field>
     <description>Google Workspace : Many failed logins, possible credential stuffing attack</description>
@@ -226,7 +226,7 @@
   <description>Google Workspace : new delegated admin role created - $(gworkspace.parameters.ROLE_NAME)</description>
 </rule>
 
-<rule id="64669" level="12">
+<rule id="64669" level="10">
   <if_sid>64600</if_sid>
   <field name="gworkspace.eventname">^authorize api client access$</field>
   <description>Google Workspace : API client authorized - $(gworkspace.parameters.API_CLIENT_NAME)</description>
@@ -301,7 +301,7 @@
     <description>Zeek anomaly: Multiple 'data_before_established' connections from same IP — possible TCP scan</description>
   </rule>
 
-  <rule id="139010" level="12" timeframe="60" frequency="2">
+  <rule id="139010" level="10" timeframe="60" frequency="2">
     <if_matched_sid>139011</if_matched_sid>
     <field name="software_name">data_before_established</field>
     <field name="src_ip">\.*</field>
@@ -351,7 +351,7 @@
 
 <!-- custom Suricata rules -->
 <group name="custom_active_response_rules,">
-  <rule id="300200" level="12">
+  <rule id="300200" level="10">
     <if_sid>86600</if_sid>
     <field name="event_type">^alert$</field>
     <match>ET DOS Inbound GoldenEye DoS attack</match>
@@ -361,7 +361,7 @@
     </mitre>
   </rule>
 
-  <rule id="300201" level="12">
+  <rule id="300201" level="10">
     <if_sid>86600</if_sid>
     <field name="event_type">^alert$</field>
     <match>ET SCAN Nmap Scripting Engine User-Agent Detected (Nmap Scripting Engine)</match>
