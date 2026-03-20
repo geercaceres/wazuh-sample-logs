@@ -596,3 +596,14 @@
 </group>
 
 
+<group name="amazon, aws, aws_guardduty,">
+  <rule id="80302" level="12" overwrite="yes">
+    <if_sid>80300</if_sid>
+    <field name="aws.severity">4|5|6</field>
+    <options>no_full_log</options>
+    <description>AWS GuardDuty: $(aws.service.action.actionType) - $(aws.title).</description>
+    <group>aws_guardduty,</group>
+  </rule>
+</group>
+
+
