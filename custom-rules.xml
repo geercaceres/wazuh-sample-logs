@@ -596,6 +596,9 @@
 </group>
 
 
+
+<!-- Rule level changes for the demo -->
+
 <group name="amazon, aws, aws_guardduty,">
   <rule id="80302" level="12" overwrite="yes">
     <if_sid>80300</if_sid>
@@ -606,4 +609,15 @@
   </rule>
 </group>
 
+<group name="windows">
+  <rule id="92058" level="10" overwrite="yes">
+    <if_group>sysmon_event1</if_group>
+    <field name="win.eventdata.originalFileName" type="pcre2">(?i)sdbinst\.EXE</field>
+    <options>no_full_log</options>
+    <description>Application Compatibility Database launched</description>
+    <mitre>
+      <id>T1546.011</id>
+    </mitre>
+  </rule>
+</group>
 
